@@ -166,9 +166,18 @@ $(document).ready(() => {
     rightHandEl.classList[addOrRemove(visiblePart.rightHand)]("active");
     faceEl.classList[addOrRemove(visiblePart.face)]("active");
   };
-  sliderFrame.oninput = function () {
+  sliderFrame.oninput = function (e) {
     selectFrameResult(this.value);
     updateVisiblePart(this.value);
+
+    const progress = +e.target.value / (+e.target.max - +e.target.min);
+
+    e.target.style.background = `linear-gradient(to right,
+      #1a73e8 0%,
+      #1a73e8 ${progress * 100}%,
+      #ffffff ${progress * 100}%,
+      #ffffff 100%
+      )`;
   };
 
   const IMAGE_STACK = [];
