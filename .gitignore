@@ -135,3 +135,5 @@ classifier/checkpoints_dist/
 classifier/checkpoints_dist_online/
 classifier/checkpoints_knn/
 classifier/checkpoints_fc/
+
+.DS_Store

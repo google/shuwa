@@ -4,7 +4,7 @@ Shuwa (手話) is Japanese for "Sign Language"
 
 Shuwa Gesture Toolkit is a framework that detects and classifies arbitrary gestures in short videos. It is particularly useful for recognizing basic words in sign language. We collected thousands of example videos of people signing Japanese Sign Language (JSL) and Hong Kong Sign Language (HKSL) to train the baseline model for recognizing gestures and facial expressions.
 
-The Shuwa Gesture Toolkit also allows you to train new gestures, so it can be trained to recognize any sign frm any sign language in the world.
+The Shuwa Gesture Toolkit also allows you to train new gestures, so it can be trained to recognize any sign from any sign language in the world.
 
 [[Web Demo](https://bitstudio.github.io/shuwa/web_demo/public)]
 
