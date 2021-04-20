@@ -1,0 +1,2 @@
+asset filter=lfs diff=lfs merge=lfs -text
+public/asset filter=lfs diff=lfs merge=lfs -text
