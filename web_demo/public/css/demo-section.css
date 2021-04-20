@@ -21,7 +21,7 @@
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  align-items: center;
+  align-items: flex-start;
 }
 .demo-section-video-wrapper {
   position: relative;
@@ -43,7 +43,7 @@
   object-fit: cover;
 }
 .demo-section-sign-wrapper {
-  width: 100%;
+  width: calc(100% + 30px);
   height: 100%;
   display: flex;
   flex-direction: row;

@@ -71,6 +71,11 @@ body {
   border-radius: 20px;
   pointer-events: none;
 }
+@media (max-height: 655px) {
+  .main-page-container {
+    height: calc(100% - 130px);
+  }
+}
 .main-page-container * {
   pointer-events: all;
 }
