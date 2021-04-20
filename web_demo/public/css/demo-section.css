@@ -57,7 +57,7 @@
   justify-content: flex-start;
 
   position: absolute;
-  top: -20px;
+  top: -10px;
   left: 0;
   transform: translate(0, -100%);
 }
@@ -70,7 +70,7 @@
 
 .language-btn {
   width: auto;
-  height: 2.6rem;
+  height: 1.6rem;
 
   padding: 0 1rem;
   margin: 0 1rem;
