@@ -13,10 +13,9 @@
 # limitations under the License.
 
 import sys; sys.path.insert(1, '../')
-from common.crop_utils import crop_square
+from crop_utils import crop_square
 
 import time
-import numpy as np
 import cv2
 from pose_manager import PoseManager
 
@@ -31,8 +30,6 @@ cap.set(cv2.CAP_PROP_FRAME_WIDTH, WEBCAM_WIDTH)
 cap.set(cv2.CAP_PROP_FOURCC, cv2.VideoWriter_fourcc(*'MJPG'))
 cap.set(cv2.CAP_PROP_FPS, 60)
 
-    
-# posenet working best at 257px.
 pose_manager = PoseManager()
     
 while True:    
