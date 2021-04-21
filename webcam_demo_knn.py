@@ -18,7 +18,7 @@ import time
 import cv2
 from datetime import datetime
 import numpy as np
-from common import crop_square
+from crop_utils import crop_square
 from constants import *
 from gui import DemoGUI
 from pipeline import Pipeline
@@ -32,7 +32,7 @@ class Application(DemoGUI, Pipeline):
     def __init__(self):
         super().__init__()
         
-        self.result_class_name = ""        
+        self.result_class_name = ""     
         self.database = []
         self.labels = []
         self.records = []      
@@ -129,7 +129,10 @@ class Application(DemoGUI, Pipeline):
 
     def video_loop(self):
 
-        _, frame = cap.read()
+        ret, frame = cap.read()
+        if not ret:
+            print("[ERROR] Camera frame not available.")
+            self.close_all()
         frame = crop_square(frame)
         frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)        
         t1 = time.time()

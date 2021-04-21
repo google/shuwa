@@ -13,10 +13,9 @@
 # limitations under the License.
 
 import sys; sys.path.insert(1, '../')
-from common import crop_square
+from crop_utils import crop_square
 
 import time
-import numpy as np
 import cv2
 from face_manager import FaceManager
 
