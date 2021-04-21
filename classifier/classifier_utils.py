@@ -20,18 +20,21 @@ from constants import *
 import random
 
 
+
 def normalize_keypoints(keypoints, center_location):
     keypoints[np.isnan(keypoints)] = 0.
-    # keypoints already in range[0, 1].
 
-    # re-center
-    center_broad = np.broadcast_to(center_location, keypoints.shape)
-    keypoints -= center_broad
     
-    keypoints[np.isnan(keypoints)] = 0.
+    # re-center    
+    keypoints -= center_location      
+    
+    # std    
+    std = np.std(keypoints, axis=1)   
+    keypoints /= np.expand_dims(std, 1)
     
     
- 
+          
+    keypoints[np.isnan(keypoints)] = 0. 
   
     return keypoints
 
@@ -40,24 +43,11 @@ def normalize_keypoints(keypoints, center_location):
 
 
 def augment(pose_frames, face_frames, left_hand_frames, right_hand_frames):
-    # select augmentations.
-    is_flip = np.random.random() < 0.5
-    is_add_noise = np.random.random() < 0.5
-    is_rotate = np.random.random() < 0.5
-    is_zoom = np.random.random() < 0.75
-    is_center_cut = np.random.random() < 0.75
+    # select augmentations.  
+    is_rotate = np.random.random() < 0.5  
     is_random_aspec_ratio = np.random.random() < 0.5
 
-    if is_flip:
-        pose_frames *= [-1, 1]
-        face_frames *= [-1, 1]
-
-        # swap hand.  
-        left_hand_frames, right_hand_frames = right_hand_frames * [-1, 1], left_hand_frames * [-1, 1]
-
-    if is_add_noise:
-        pose_frames = add_noise(pose_frames, 0.07)
-
+  
     if is_rotate:        
         rotate_degrees = random.randint(-20, 20)
         
@@ -66,20 +56,7 @@ def augment(pose_frames, face_frames, left_hand_frames, right_hand_frames):
         left_hand_frames = rotate_kp(left_hand_frames, rotate_degrees)
         right_hand_frames = rotate_kp(right_hand_frames, rotate_degrees)
         
-    if is_zoom:
-        zoom_m = 0.8 + 2*np.random.random()#was/2
-        pose_frames *= zoom_m
-        face_frames *= zoom_m
-        left_hand_frames *= zoom_m
-        right_hand_frames *= zoom_m
-    
-    if is_center_cut:
-        cut_edge = 0.6 + np.random.random()/3     
-        pose_frames[(abs(pose_frames)>cut_edge).any(axis=-1)] = 0.
-        left_hand_frames[(abs(left_hand_frames)>cut_edge).any(axis=-1)] = 0.
-        right_hand_frames[(abs(right_hand_frames)>cut_edge).any(axis=-1)] = 0.
-        
-        
+          
     if is_random_aspec_ratio:
         ratio_x = 0.75+np.random.random()/2
         ratio_y = 0.75+np.random.random()/2
@@ -88,21 +65,11 @@ def augment(pose_frames, face_frames, left_hand_frames, right_hand_frames):
         left_hand_frames *= [ratio_x, ratio_y]
         right_hand_frames *= [ratio_x, ratio_y]
         
-        
-    outmose_edge = 0.5
-    pose_frames[(abs(pose_frames)>outmose_edge).any(axis=-1)] = 0.
-    left_hand_frames[(abs(left_hand_frames)>outmose_edge).any(axis=-1)] = 0.
-    right_hand_frames[(abs(right_hand_frames)>outmose_edge).any(axis=-1)] = 0.
-
+     
    
 
     return pose_frames, face_frames, left_hand_frames, right_hand_frames
 
-
-def add_noise(signal, factor=0.1):
-    noise_std = np.std(signal) * np.random.random() * factor
-    noise = np.random.normal(0, noise_std, signal.shape)
-    return signal + noise
 
 
 def rotate_kp(keypoints_xy_frames, rotate_degrees=10):
