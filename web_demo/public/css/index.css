@@ -27,6 +27,28 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.mobile-device-modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 200;
+
+  width: 100vw;
+  height: 100vh;
+  background: white;
+
+  display: none;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 20px;
+  text-align: center;
+}
+.mobile-device-modal img {
+  width: 50%;
+  max-width: 100px;
+}
 .processing-modal {
   width: 100vw;
   height: 100vh;

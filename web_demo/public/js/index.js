@@ -21,7 +21,7 @@ import { setupCamera, captureImage } from "./record.js";
 
 import SignLanguageClassifyModel from "./ML/signClassify.js";
 import { drawResult } from "./drawkeypoints.js";
-import { removeChild, checkArrayMatch } from "./utils.js";
+import { removeChild, checkArrayMatch, isMobile } from "./utils.js";
 
 window.recoil = {
   selectSign: "",
@@ -36,11 +36,17 @@ $(document).ready(() => {
     window.recoil.pageState = input;
     const processingModal = document.querySelector(".processing-modal");
     const processingText = document.querySelector(".processing-text");
-    const recordIdle = document.querySelector(".record-idle");
-    const recordResult = document.querySelector(".record-result");
+    const mobileModal = document.querySelector(".mobile-device-modal");
     const backgrounddiv = document.querySelector(".background");
     const mainSection = document.querySelector(".main-section");
     switch (input) {
+      case "mobilemodal":
+        const allElement = document.querySelectorAll(
+          "body > div:not(.mobile-device-modal)"
+        );
+        allElement.forEach((el) => (el.style.display = "none"));
+        mobileModal.style.display = "flex";
+        break;
       case "intro":
         mainSection.style.transform = "translateX(0)";
         processingModal.style.display = "none";
@@ -124,8 +130,16 @@ $(document).ready(() => {
     console.log("init model finish");
     if (window.recoil.pageState === "processingmodel") page_changeState("idle");
   };
+  function notMobile() {
+    if (isMobile()) {
+      page_changeState("mobilemodal");
+
+      return false;
+    }
+    return true;
+  }
   page_changeState("intro");
-  initmodel();
+  notMobile() && initmodel();
 
   /**
    * Flow:

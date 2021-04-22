@@ -34,3 +34,9 @@ export const checkArrayMatch = (a, b) => {
   });
   return z.includes(JSON.stringify(b));
 };
+
+export const isMobile = () => {
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+    navigator.userAgent
+  );
+};
