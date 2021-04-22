@@ -26,11 +26,14 @@ import { removeChild, checkArrayMatch } from "./utils.js";
 window.recoil = {
   selectSign: "",
   recordClickable: true,
+  isModelReady: false,
+  pageState: "intro",
 };
 
 $(document).ready(() => {
   // page state management
   const page_changeState = (input) => {
+    window.recoil.pageState = input;
     const processingModal = document.querySelector(".processing-modal");
     const processingText = document.querySelector(".processing-text");
     const recordIdle = document.querySelector(".record-idle");
@@ -116,10 +119,12 @@ $(document).ready(() => {
 
   const initmodel = async () => {
     await classifyModel.initModel();
-    page_changeState("intro");
+    window.recoil.isModelReady = true;
+    // page_changeState("intro");
     console.log("init model finish");
+    if (window.recoil.pageState === "processingmodel") page_changeState("idle");
   };
-  page_changeState("loadingmodel");
+  page_changeState("intro");
   initmodel();
 
   /**
@@ -358,7 +363,11 @@ $(document).ready(() => {
   };
 
   $("#intro-next-btn").on("click", () => {
-    page_changeState("idle");
+    if (window.recoil.isModelReady) {
+      page_changeState("idle");
+    } else {
+      page_changeState("processingmodel");
+    }
     setupCamera();
   });
 
