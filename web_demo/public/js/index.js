@@ -111,7 +111,6 @@ $(document).ready(() => {
   };
   console.log("getting start ready!");
   initVideoSeleciton();
-  setupCamera();
 
   const classifyModel = new SignLanguageClassifyModel();
 
@@ -360,6 +359,7 @@ $(document).ready(() => {
 
   $("#intro-next-btn").on("click", () => {
     page_changeState("idle");
+    setupCamera();
   });
 
   $("#record-btn-id").on("click", () => {
