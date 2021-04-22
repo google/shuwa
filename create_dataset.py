@@ -49,6 +49,8 @@ def main(mp4_path, output_path_root):
         video_path = os.path.normpath(video_path)
         
         folder = os.path.join(output_path_root, video_path.split(os.sep)[-2])
+        if not os.path.exists(folder):
+            os.makedirs(folder)    
         output_path = os.path.join(folder, video_path.split(os.sep)[-1])        
             
         annotations_maker = AnnotationsMaker(output_path)

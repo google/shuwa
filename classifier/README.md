@@ -34,11 +34,11 @@ my_dataset_folder
 ```
 python ../create_dataset.py my_dataset_folder output_folder
 ```
-3. Edit LABELS in [`constants.py`](../constants.py#L43)
+3. Edit LABELS in [`constants.py`](../constants.py#L55)
 
 
 3. Train  
-See [`notebook`](train_knn.ipynb)  
+See [`notebook`](train_dd.ipynb)  
   
   
 4. Convert checkpoint to TFJS model.  
