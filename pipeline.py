@@ -89,7 +89,10 @@ class Pipeline:
         """Run sign classifier.
 
         Returns:
-            np.ndarray: 832 feats.
+            np.ndarray: 832D.
+            pose [0:255] : 256D
+            face[256:319] : 64D
+            hand[320:831] : 512D
         """
         feats = self.classifier([self.pose_history, self.face_history, self.left_hand_history, self.right_hand_history])
         self.reset_pipeline()
@@ -97,12 +100,12 @@ class Pipeline:
     
     
     def run_knn_classifier(self, k=3):    
-        feats = self.run_classifier()        
+        feats = self.run_classifier()
         distances_by_feats = np.square(self.database - feats)        
         distances_total = np.sum(distances_by_feats, axis=-1)    
         
 
-        # top 7 nearst samples.      
+        # top k nearst samples.      
         top_indices = np.argpartition(distances_total, k)[:k]
         top_lables = self.labels[top_indices]
         

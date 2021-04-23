@@ -89,7 +89,7 @@ class Application(DemoGUI, Pipeline):
                     self.console_box.delete('1.0', 'end')
                     self.console_box.insert('end',
                         "Nearest class: {:s}\n".format(result_class_name))
-                                
+
                         
                 # record mode.
                 else:
