@@ -118,23 +118,23 @@ $(document).ready(() => {
     }
   };
   // record state management
-  const record_changeState = (input) => {
-    const recordBtn = document.getElementById("record-btn-id");
-    switch (input) {
-      case "idle":
-        recordBtn.style.width = "90px";
-        recordBtn.style.height = "90px";
-        recordBtn.innerHTML = "Ready";
-        recordBtn.style.borderRadius = "50%";
-        break;
-      case "record":
-        recordBtn.style.width = "45px";
-        recordBtn.style.height = "45px";
-        recordBtn.innerHTML = "";
-        recordBtn.style.borderRadius = "0%";
-        break;
-    }
-  };
+  // const record_changeState = (input) => {
+  //   const recordBtn = document.getElementById("record-btn-id");
+  //   switch (input) {
+  //     case "idle":
+  //       recordBtn.style.width = "90px";
+  //       recordBtn.style.height = "90px";
+  //       recordBtn.innerHTML = "Ready";
+  //       recordBtn.style.borderRadius = "50%";
+  //       break;
+  //     case "record":
+  //       recordBtn.style.width = "45px";
+  //       recordBtn.style.height = "45px";
+  //       recordBtn.innerHTML = "";
+  //       recordBtn.style.borderRadius = "0%";
+  //       break;
+  //   }
+  // };
   console.log("getting start ready!");
   initVideoSeleciton();
 
@@ -382,7 +382,7 @@ $(document).ready(() => {
       const time_now = +new Date();
       if (time_now - time_startCapture > 3000) {
         console.log("finish capture image");
-        record_changeState("idle");
+        // record_changeState("idle");
         page_changeState("processingmodel");
         startClassify();
         return;
@@ -415,7 +415,7 @@ $(document).ready(() => {
         console.log(count);
         if (count === 3) {
           countdownElem.innerHTML = "";
-          record_changeState("record");
+          // record_changeState("record");
           clearInterval(CountDownInterval);
           handleCapture();
         }
