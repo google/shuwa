@@ -47,6 +47,8 @@
   width: 50%;
   box-sizing: border-box;
   padding: 40px;
+  display: flex;
+  flex-flow: column;
 }
 .result-prediction-table {
   width: 100%;
@@ -64,6 +66,7 @@
   height: 15vh;
   position: relative;
   overflow: hidden;
+  flex: 1;
 }
 .try-new-sign-btn {
   background: #1a73e8;
