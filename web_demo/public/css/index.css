@@ -78,8 +78,8 @@ body {
 .main-page-sidebar {
   position: relative;
   height: 100%;
-  background: #dddddd;
-  z-index: 2;
+  /* background: #dddddd; */
+  /* z-index: 2; */
 }
 .main-page-left {
   width: 10%;

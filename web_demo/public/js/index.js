@@ -39,6 +39,11 @@ $(document).ready(() => {
     const mobileModal = document.querySelector(".mobile-device-modal");
     const backgrounddiv = document.querySelector(".background");
     const mainSection = document.querySelector(".main-section");
+    const introSection = document.querySelector(".intro-section");
+    const demoSection = document.querySelector(".demo-section");
+    const recordSection = document.querySelector(".record-section");
+    const recordResult = document.querySelector(".record-result");
+
     switch (input) {
       case "mobilemodal":
         const allElement = document.querySelectorAll(
@@ -50,12 +55,20 @@ $(document).ready(() => {
       case "intro":
         mainSection.style.transform = "translateX(0)";
         processingModal.style.display = "none";
+        introSection.style.opacity = 1;
+        demoSection.style.opacity = 0;
+        recordSection.style.opacity = 0;
+        recordResult.style.opacity = 0;
         break;
       case "idle":
         // recordIdle.style.opacity = "1";
         // recordIdle.style.zIndex = "2";
 
         mainSection.style.transform = "translateX(calc(-1/3 * 100% - 3px))";
+        introSection.style.opacity = 0;
+        demoSection.style.opacity = 1;
+        recordSection.style.opacity = 1;
+        recordResult.style.opacity = 0;
         // recordResult.style.opacity = "0";
         // recordResult.style.zIndex = "1";
 
@@ -88,6 +101,10 @@ $(document).ready(() => {
         // recordIdle.style.zIndex = "1";
 
         mainSection.style.transform = "translateX(calc(-2/3 * 100% - 3px))";
+        introSection.style.opacity = 0;
+        demoSection.style.opacity = 0;
+        recordSection.style.opacity = 0;
+        recordResult.style.opacity = 1;
         // recordResult.style.opacity = "1";
         // recordResult.style.zIndex = "2";
         processingModal.style.display = "none";

@@ -19,6 +19,7 @@
   margin-left: 3px;
   height: 100%;
   display: flex;
+  transition: all 2s;
   /* dev */
   /* display: none; */
 }

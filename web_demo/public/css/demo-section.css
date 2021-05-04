@@ -22,6 +22,9 @@
   justify-content: center;
   text-align: center;
   align-items: flex-start;
+
+  opacity: 0;
+  transition: all 2s;
 }
 .demo-section-video-wrapper {
   position: relative;
@@ -57,9 +60,9 @@
   justify-content: flex-start;
 
   position: absolute;
-  top: -10px;
+  top: 30px;
   left: 0;
-  transform: translate(0, -100%);
+  transform: translate(-100%, 0);
 }
 .demo-section-sign-wrapper-sign-table-wrapper {
   width: 100%;

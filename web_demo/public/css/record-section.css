@@ -20,6 +20,8 @@
   background: #efefef;
   border-radius: 20px;
   display: flex;
+
+  transition: all 2s;
 }
 .record-idle {
   width: 50%;

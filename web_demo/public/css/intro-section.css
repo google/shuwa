@@ -16,6 +16,7 @@
 
 .intro-section {
   width: calc(1 / 3 * 100%);
+  transition: all 2s;
 }
 
 .intro-container {
