@@ -11,8 +11,7 @@ The Shuwa Gesture Toolkit also allows you to train new gestures, so it can be tr
 # How it works
 
 ![](assets/overview.jpg)  
-By combining pose, face, and hand detector results over multiple frames we can acquire a fairly requirement for sign language understanding includes body movement, facial movement, and hand gesture. After that we use DD-Net as a recognitor to predict sign features represented in the 832D vector. Finally using use K-Nearest Neighbor classification to output the class prediction.  
-See more details in the [blog post]()
+By combining pose, face, and hand detector results over multiple frames we can acquire a fairly requirement for sign language understanding includes body movement, facial movement, and hand gesture. After that we use DD-Net as a recognitor to predict sign features represented in the 832D vector. Finally using use K-Nearest Neighbor classification to output the class prediction.
 
 All related models listed below.
 
