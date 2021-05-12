@@ -22,6 +22,7 @@ import { setupCamera, captureImage } from "./record.js";
 import SignLanguageClassifyModel from "./ML/signClassify.js";
 import { drawResult } from "./drawkeypoints.js";
 import { removeChild, checkArrayMatch, isMobile } from "./utils.js";
+import initHelpmodal from "./helpmodal.js";
 
 window.recoil = {
   selectSign: "",
@@ -117,24 +118,8 @@ $(document).ready(() => {
         break;
     }
   };
-  // record state management
-  // const record_changeState = (input) => {
-  //   const recordBtn = document.getElementById("record-btn-id");
-  //   switch (input) {
-  //     case "idle":
-  //       recordBtn.style.width = "90px";
-  //       recordBtn.style.height = "90px";
-  //       recordBtn.innerHTML = "Ready";
-  //       recordBtn.style.borderRadius = "50%";
-  //       break;
-  //     case "record":
-  //       recordBtn.style.width = "45px";
-  //       recordBtn.style.height = "45px";
-  //       recordBtn.innerHTML = "";
-  //       recordBtn.style.borderRadius = "0%";
-  //       break;
-  //   }
-  // };
+  initHelpmodal();
+
   console.log("getting start ready!");
   initVideoSeleciton();
 

@@ -121,6 +121,7 @@ body {
   margin: 15px;
   text-decoration: none;
   color: black;
+  cursor: pointer;
 }
 .social-btn-icon {
   width: 40px;

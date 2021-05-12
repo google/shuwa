@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="./css/demo-section.css" />
     <link rel="stylesheet" href="./css/record-result.css" />
     <link rel="stylesheet" href="./css/record-section.css" />
+    <link rel="stylesheet" href="./css/help-modal.css" />
   </head>
   <body>
     <!-- 
@@ -130,9 +131,13 @@
                   Kong Sign Language.
                 </p>
                 <p class="made-with">
-                  Made in collaboration with <b>
-                  <a href="https://www.nippon-foundation.or.jp/">Nippon 
-                  Foundation</a></b> &
+                  Made in collaboration with
+                  <b>
+                    <a href="https://www.nippon-foundation.or.jp/"
+                      >Nippon Foundation</a
+                    ></b
+                  >
+                  &
                   <b><a href="https://www.cuhk.edu.hk/">CUHK</a></b>
                 </p>
               </div>
@@ -417,7 +422,7 @@
         </div>
       </div>
       <div class="main-page-sidebar main-page-right">
-        <div class="social-btn">
+        <div class="social-btn" id="help-btn">
           <img
             class="social-btn-icon help"
             src="./assets/icons/help-icon.svg"
@@ -435,17 +440,52 @@
           />
           <p class="social-btn-text">Github</p>
         </a>
-        <a 
-          href="https://sign.town"
-          target="_blank"
-          class="social-btn"
-        >
+        <a href="https://sign.town" target="_blank" class="social-btn">
           <img
             class="social-btn-icon signtown"
             src="./assets/icons/signtown-icon.svg"
           />
           <p class="social-btn-text">SignTown</p>
         </a>
+      </div>
+      <div class="help-modal-container">
+        <div class="help-modal">
+          <div id="help-modal-close">
+            <svg
+              width="26"
+              height="26"
+              viewBox="0 0 26 26"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M25.1875 3.25114L22.6507 0.776245L12.5936 10.5881L2.53654 0.776245L-0.000228882 3.25114L10.0569 13.0629L-0.000228882 22.8748L2.53654 25.3496L12.5936 15.5378L22.6507 25.3496L25.1875 22.8748L15.1304 13.0629L25.1875 3.25114Z"
+                fill="black"
+                fill-opacity="0.49"
+              />
+            </svg>
+          </div>
+          <h2>How to Use</h2>
+          <ol>
+            <li>
+              Learn a sign from Japanese Sign Language or Hong Kong Sign
+              Language by picking a video from the menu.
+            </li>
+            <li>Record yourself doing one of the signs.</li>
+            <li>See the ML model guess what you are signing.</li>
+          </ol>
+
+          <h2>Tips</h2>
+
+          <ul>
+            <li>Make sure you are in a well lit area.</li>
+            <li>
+              Make sure your entire upper torso, face, arms, and hands are
+              visible to the camera.
+            </li>
+            <li>Make sure you’re the only one visible on camera.</li>
+          </ul>
+        </div>
       </div>
     </div>
 
