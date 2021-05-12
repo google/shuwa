@@ -62,7 +62,11 @@
   font-size: 14px;
   line-height: 22px;
   text-align: left;
-  color: #686868;
+}
+
+.intro-text .made-with a {
+  color: #686868 !important;
+  text-decoration: none;
 }
 
 .intro-video-container {
