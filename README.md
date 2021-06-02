@@ -49,19 +49,22 @@ You can try each detector individually by using these scripts.
 - FaceMesh
 
 ```
-python3 face_landmark\webcam_demo_face.py
+cd face_landmark
+python3 webcam_demo_face.py
 ```
 
 - PoseNet
 
 ```
-python3 posenet\webcam_demo_pose.py
+cd posenet
+python3 webcam_demo_pose.py
 ```
 
 - HandLandmarks
 
 ```
-python3 hand_landmark\webcam_demo_hand.py
+cd hand_landmark
+python3 webcam_demo_hand.py
 ```
 
 # Deploy on the Web using Tensorflow.js
