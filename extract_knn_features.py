@@ -19,7 +19,7 @@ import cv2
 import numpy as np
 
 
-from common import letterbox_image
+from crop_utils import letterbox_image
 from utils import *
 from constants import *
 
@@ -30,15 +30,20 @@ sign_pipeline = Pipeline()
 
 
 
-
-
-
-
 def main(mp4_path, output_path_root):
+    """Extract 832 knn features from video.
+    Alternative from using record mode.
+
+    Args:
+        mp4_path ([string]): root directory of mp4 video.
+        output_path_root ([string]): output path
+    """
 
 
     mp4_path = os.path.join(mp4_path, "**","*.mp4")
     all_vid_path = glob.glob(mp4_path)
+    
+ 
   
     for video_path in all_vid_path:   
         video_path = os.path.normpath(video_path)
@@ -48,8 +53,8 @@ def main(mp4_path, output_path_root):
         if not os.path.exists(folder):
             os.mkdir(folder)
         
-
         cap = cv2.VideoCapture(video_path)
+        print(video_path)
         ret, frame = cap.read()       
         num_frame = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
         frame_idx = 0
@@ -68,8 +73,8 @@ def main(mp4_path, output_path_root):
             cv2.waitKey(1)
             frame_idx += 1
             
-            
-        feats, _ = sign_pipeline.run_classifier()
+
+        feats = sign_pipeline.run_classifier()
         np.savetxt(output_path, feats)
         
         
