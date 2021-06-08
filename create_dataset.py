@@ -15,8 +15,6 @@
 import sys, os, glob
 import time
 import cv2
-import numpy as np
-import tensorflow as tf
 
 sys.path.insert(1, 'posenet')
 sys.path.insert(1, 'face_landmark')
@@ -26,7 +24,7 @@ sys.path.insert(1, 'classifier')
 from pose_manager import PoseManager
 from face_manager import FaceManager
 from hand_pipeline import HandPipeline
-from common import crop_square, letterbox_image
+from crop_utils import letterbox_image
 import argparse
 from utils import *
 from annotations_maker import AnnotationsMaker
@@ -48,9 +46,7 @@ def main(mp4_path, output_path_root):
     for video_path in all_vid_path:   
         video_path = os.path.normpath(video_path)
         
-        folder = os.path.join(output_path_root, video_path.split(os.sep)[-2])
-        if not os.path.exists(folder):
-            os.makedirs(folder)    
+        folder = os.path.join(output_path_root, video_path.split(os.sep)[-2]) 
         output_path = os.path.join(folder, video_path.split(os.sep)[-1])        
             
         annotations_maker = AnnotationsMaker(output_path)

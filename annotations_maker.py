@@ -16,11 +16,13 @@ import numpy as np
 import os, pickle
 from constants import *
 from pathlib import Path
+import posixpath
+
 
 class AnnotationsMaker():
     def __init__(self, output_path):        
         # save folder path.
-        root_path = os.path.join(*output_path.split(os.sep)[:-2])
+        root_path = posixpath.join(*output_path.split(os.sep)[:-2])
         folder_name = output_path.split(os.sep)[-2]
         
         # save file name.
@@ -30,10 +32,11 @@ class AnnotationsMaker():
         # this annotation will go to train or val set.    
         train_val = "val" if np.random.random() < SPLIT_TRAIN_VAL else "train"            
         
-        folder_path = os.path.join(root_path, train_val, folder_name)
+        folder_path = posixpath.join(root_path, train_val, folder_name)
         if not os.path.exists(folder_path):
-            os.makedirs(folder_path)   
-        self.output_path =os.path.join(folder_path, file_name)                         
+            os.makedirs(folder_path)
+            
+        self.output_path = posixpath.join(folder_path, file_name)                         
 
         self.posenet_holder = []
         self.face_holder = []
