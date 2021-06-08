@@ -32,8 +32,7 @@ def get_adjacent_keypoints(keypoint_scores, keypoint_coords, min_confidence=0.1)
         if keypoint_scores[left] < min_confidence or keypoint_scores[right] < min_confidence:
             continue
         results.append(
-            np.array([keypoint_coords[left][::-1][[1, 0]], keypoint_coords[right][::-1][[1, 0]]]).astype(np.int32),
-        )
+            np.int32([keypoint_coords[left], keypoint_coords[right]]))
     return results
 
 
