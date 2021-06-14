@@ -44,10 +44,8 @@ def crop_from_rect(frame_rgb, rect):
 # ─── FACE-UTILS ─────────────────────────────────────────────────────────────────
 def get_face_rect_from_posenet(keypoint_coords, factor=1.8):
     # use face_center instead of nose. 
-    l_ear = np.array([keypoint_coords[0][POSENET_PART_NAMES.index("leftEar")][0],
-                      keypoint_coords[0][POSENET_PART_NAMES.index("leftEar")][1]])
-    r_ear = np.array([keypoint_coords[0][POSENET_PART_NAMES.index("rightEar")][0],
-                      keypoint_coords[0][POSENET_PART_NAMES.index("rightEar")][1]])
+    l_ear = keypoint_coords[0][POSENET_PART_NAMES.index("leftEar")][:2]
+    r_ear = keypoint_coords[0][POSENET_PART_NAMES.index("rightEar")][:2]
     face_center = (l_ear + r_ear) / 2
 
     # create face rect.
@@ -63,8 +61,8 @@ def get_face_rect_from_posenet(keypoint_coords, factor=1.8):
 # ─── HAND-UTILS ─────────────────────────────────────────────────────────────────
 
 def get_hand_rect_from_posenet(keypoint_coords, wrist_idx=9, minfin_idx=17):
-    wrist = np.array([keypoint_coords[wrist_idx][0], keypoint_coords[wrist_idx][1]])
-    midfin = np.array([keypoint_coords[minfin_idx][0], keypoint_coords[minfin_idx][1]])
+    wrist = keypoint_coords[wrist_idx][:2]
+    midfin = keypoint_coords[minfin_idx][:2]
 
     # create hand rect.
     middle_finder_direction = midfin - wrist
