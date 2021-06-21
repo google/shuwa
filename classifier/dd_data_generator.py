@@ -91,12 +91,14 @@ class DDDataGenerator(Sequence):
         pose_frames, face_frames, left_hand_frames, right_hand_frames = sampling_method(pose_frames, face_frames, left_hand_frames, right_hand_frames)
 
         # normalize
-        nose_location = pose_frames[:, POSENET_CENTER_INDEX].copy().reshape(pose_frames.shape[0], 1, pose_frames.shape[2])
+        nose_location = np.expand_dims(pose_frames[:, POSENET_CENTER_INDEX].copy(), 1) # index=0
+        midfin_location_l = np.expand_dims(left_hand_frames[:, HAND_CENTER_INDEX].copy(), 1) # index=9
+        midfin_location_r = np.expand_dims(right_hand_frames[:, HAND_CENTER_INDEX].copy(), 1) # index=9
         
         pose_frames = normalize_keypoints(pose_frames, center_location=nose_location)
         face_frames = normalize_keypoints(face_frames, center_location=nose_location)
-        left_hand_frames = normalize_keypoints(left_hand_frames, center_location=nose_location)
-        right_hand_frames = normalize_keypoints(right_hand_frames, center_location=nose_location)
+        left_hand_frames = normalize_keypoints(left_hand_frames, center_location=midfin_location_l)
+        right_hand_frames = normalize_keypoints(right_hand_frames, center_location=midfin_location_r)
 
 
         # augment
