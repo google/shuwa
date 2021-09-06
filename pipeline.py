@@ -106,7 +106,7 @@ class Pipeline:
         
 
         # top k nearst samples.      
-        top_indices = np.argpartition(distances_total, k)[:k]
+        top_indices = np.argsort(distances_total, k)[:k]
         top_lables = self.labels[top_indices]
         
         
