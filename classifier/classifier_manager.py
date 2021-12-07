@@ -21,7 +21,7 @@ sys.path.insert(1, '../')
 from constants import *
 
 module_path = os.path.abspath(os.path.dirname(__file__))
-MODEL_PATH = os.path.join(module_path, "model/20210421.h5")
+MODEL_PATH = os.path.join(module_path, "model/20211207.h5")
 
 
 class ClassifierManager():
@@ -61,7 +61,7 @@ class ClassifierManager():
     
     def __call__(self, kp_stack):        
         net_input = self.preprocess_input(kp_stack)
-        output_feats, cls_output = self.model(net_input)
+        output_feats = self.model(net_input)
         
         return output_feats.numpy().reshape(-1)
   

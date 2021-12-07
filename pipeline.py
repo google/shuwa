@@ -103,10 +103,10 @@ class Pipeline:
         feats = self.run_classifier()
         distances_by_feats = np.square(self.database - feats)        
         distances_total = np.sum(distances_by_feats, axis=-1)    
-        
+      
 
         # top k nearst samples.      
-        top_indices = np.argsort(distances_total, k)[:k]
+        top_indices = np.argsort(distances_total)[:k]
         top_lables = self.labels[top_indices]
         
         

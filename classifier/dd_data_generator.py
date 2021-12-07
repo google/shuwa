@@ -125,7 +125,7 @@ class DDDataGenerator(Sequence):
         right_hand_frames_batch = np.empty([self.batch_size, NUM_FRAME_SAMPLES, NUM_HAND_JOINTS, HAND_JOINT_DIMS], dtype=np.float32)
         
         y_batch = np.zeros([self.batch_size, 1], dtype=np.float32)
-        cls_batch = np.zeros([self.batch_size, NUM_CLASSES], dtype=np.float32)
+        
 
         for i in range(self.batch_size):
         
@@ -138,8 +138,7 @@ class DDDataGenerator(Sequence):
                         
             
             y_batch[i] = label_idx
-            cls_batch[i,label_idx] = 1.
-
-        return [pose_frames_batch, face_frames_batch, left_hand_frames_batch, right_hand_frames_batch],  [y_batch, cls_batch]
+           
+        return [pose_frames_batch, face_frames_batch, left_hand_frames_batch, right_hand_frames_batch],  y_batch
 
 
