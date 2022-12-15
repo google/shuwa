@@ -130,10 +130,17 @@ dmypy.json
 vid_output/
 
 classifier/checkpoints/
-classifier/checkpoints_dist/
 
-classifier/checkpoints_dist_online/
-classifier/checkpoints_knn/
-classifier/checkpoints_fc/
 
 .DS_Store
+holistic_web_clean/node_modules/
+knn_dataset/
+classifier/im_dataset/
+knn_dataset-large/
+test/
+knn_dataset_legacy/
+hk_knn/
+*.lnk
+*.exe
+knn_database/
+train_ckpts/

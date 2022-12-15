@@ -11,29 +11,24 @@ The Shuwa Gesture Toolkit also allows you to train new gestures, so it can be tr
 # How it works
 
 ![](assets/overview.jpg)  
-By combining pose, face, and hand detector results over multiple frames we can acquire a fairly requirement for sign language understanding includes body movement, facial movement, and hand gesture. After that we use DD-Net as a recognitor to predict sign features represented in the 832D vector. Finally using use K-Nearest Neighbor classification to output the class prediction.
+by combining the results of a [Holistic](https://google.github.io/mediapipe/solutions/holistic.html) model over multiple frames. We can create a reasonable set of requirements for interpreting sign language, which include body language, facial expression, and hand gestures.
 
-All related models listed below.
 
-- > [PoseNet](https://github.com/tensorflow/tfjs-models/tree/master/posenet): Pose detector model.
-- > [FaceMesh](https://google.github.io/mediapipe/solutions/face_mesh) : Face keypoints detector model.
-- > [HandLandmarks](https://google.github.io/mediapipe/solutions/hands) : Hand keypoints detector model.
-- > [DD-Net](https://github.com/fandulu/DD-Net) : Skeleton-based action recognition model.
+The next step is to predict the sign features vector using a classifier model. Lastly, output the class prediction using K-Nearest Neighbor classification.
+
 
 # Installation
 
-- For MacOS user  
-  Install python 3.7 from [`official python.org`](https://www.python.org/downloads/release/python-379/) for tkinter support.
-
+- Install python 3.9
 - Install dependencies
   ```
   pip3 install -r requirements.txt 
   ```
 
-# Run Python Demo
+# Run demo
 
 ```
-python3 webcam_demo_knn.py
+python3 webcam_demo.py
 ```
 
 - Use record mode to add more sign.  
@@ -42,36 +37,12 @@ python3 webcam_demo_knn.py
 - Play mode.  
   ![play_mode](assets/play_mode.gif)
 
-# Run Detector demo
-
-You can try each detector individually by using these scripts.
-
-- FaceMesh
-
-```
-cd face_landmark
-python3 webcam_demo_face.py
-```
-
-- PoseNet
-
-```
-cd posenet
-python3 webcam_demo_pose.py
-```
-
-- HandLandmarks
-
-```
-cd hand_landmark
-python3 webcam_demo_hand.py
-```
 
 # Deploy on the Web using Tensorflow.js
 
 Instructions [`here`](/web_demo)
 
-# Train classifier from scratch
+# Train classifier
 
 You can add a custom sign by using Record mode in the full demo program.  
-But if you want to train the classifier from scratch you can check out the process [`here`](/classifier)
+But if you want to train the classifier from scratch you can check out the process [`here`](/notebooks/train_translator.ipynb)
