@@ -1,0 +1,29 @@
+MIDFIN = 9
+L_SHOULDER = 5
+R_SHOULDER = 6
+L_EYE=23
+R_EYE=17
+HAND_WRIST=0
+
+
+# This value represent missing joints, will get pass through the network.
+IGNORE_VALUE = -100.
+
+
+
+
+SELECTED_POSE = [0, 2, 5, 7, 8, 11, 12, 15, 16, 17, 18, 19, 20, 21, 22]
+SELECTED_FACE = [
+    1, # nose
+    78, 191, 80, 13, 310, 415, 308, 324, 318, 14, 88, 95, # lip
+    107, 69, 105, 52, 159, 145, # eye1
+    336, 299, 334, 282, 386, 374 # eye2
+]
+
+
+
+LH_INPOSE = [ 7,  9, 11, 13]
+RH_INPOSE = [ 8, 10, 12, 14]
+
+
+N_FRAMES = 16

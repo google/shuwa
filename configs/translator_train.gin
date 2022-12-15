@@ -1,0 +1,9 @@
+include 'configs/translator.gin'
+
+
+TRAIN_BATCH_SIZE = 256
+modules.translator.model.get_model.batch_size = %TRAIN_BATCH_SIZE
+modules.translator.data_generator.DataGenerator.batch_size = %TRAIN_BATCH_SIZE
+modules.translator.data_generator.DataGenerator.labels = %LABELS
+modules.translator.data_generator.DataGenerator.n_frames = %N_FRAMES
+

@@ -1,0 +1,8 @@
+include 'configs/translator.gin'
+
+
+modules.translator.model.get_model.batch_size = 1
+modules.translator.translator_manager.TranslatorManager.knn_dir = "data/knn"
+
+
+

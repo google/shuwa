@@ -1,0 +1,17 @@
+include 'configs/skeletons.gin'
+
+
+modules.utils.skeleton_utils.filter_visibility.lh_inpose = %LH_INPOSE
+modules.utils.skeleton_utils.filter_visibility.rh_inpose = %RH_INPOSE
+modules.utils.skeleton_utils.filter_visibility.bp_hand_thres = 0.7
+modules.utils.skeleton_utils.filter_visibility.ignore_value = %IGNORE_VALUE
+
+
+
+modules.utils.skeleton_utils.preprocess_keypoints_tf.midfin = %MIDFIN
+modules.utils.skeleton_utils.preprocess_keypoints_tf.l_shoulder = %L_SHOULDER
+modules.utils.skeleton_utils.preprocess_keypoints_tf.r_shoulder = %R_SHOULDER
+modules.utils.skeleton_utils.preprocess_keypoints_tf.l_eye = %L_EYE
+modules.utils.skeleton_utils.preprocess_keypoints_tf.r_eye = %R_EYE
+modules.utils.skeleton_utils.preprocess_keypoints_tf.hand_wrist = %HAND_WRIST
+modules.utils.skeleton_utils.preprocess_keypoints_tf.ignore_value = %IGNORE_VALUE

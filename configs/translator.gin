@@ -1,0 +1,28 @@
+include 'configs/labels.gin'
+include 'configs/skeletons.gin'
+
+modules.translator.translator_manager.TranslatorManager.labels = %LABELS
+modules.translator.translator_manager.TranslatorManager.n_frames = %N_FRAMES
+modules.translator.data_generator.DataGenerator.labels = %LABELS
+
+
+
+modules.translator.model.get_model.n_pose_feats = 96
+modules.translator.model.get_model.n_face_feats = 48
+modules.translator.model.get_model.n_hand_feats = 96
+modules.translator.model.get_model.n_classes = %N_CLASSES
+modules.translator.model.get_model.n_frames = %N_FRAMES
+
+modules.translator.model.cdist.ignore_value = %IGNORE_VALUE
+modules.translator.model.poses_diff.ignore_value = %IGNORE_VALUE
+
+
+modules.translator.augmentation.shift_pose.ignore_value = %IGNORE_VALUE
+modules.translator.augmentation.random_rotate.ignore_value = %IGNORE_VALUE
+modules.translator.augmentation.rotate_fingers.ignore_value = %IGNORE_VALUE
+modules.translator.augmentation.shift_pose.l_shoulder = %L_SHOULDER
+modules.translator.augmentation.shift_pose.r_shoulder = %R_SHOULDER
+
+
+
+modules.translator.translator_manager.TranslatorManager.model_path = "checkpoints/translator/2h20220915.h5"

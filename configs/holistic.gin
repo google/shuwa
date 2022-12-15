@@ -1,0 +1,6 @@
+include 'configs/skeletons.gin'
+
+
+modules.holistic.utils.filter_pose.selected_joints = %SELECTED_POSE
+modules.holistic.utils.filter_face.selected_joints = %SELECTED_FACE
+
