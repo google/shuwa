@@ -38,9 +38,6 @@ python3 webcam_demo.py
   ![play_mode](assets/play_mode.gif)
 
 
-# Deploy on the Web using Tensorflow.js
-
-Instructions [`here`](/web_demo)
 
 # Train classifier
 
