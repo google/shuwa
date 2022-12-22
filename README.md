@@ -37,6 +37,14 @@ python3 webcam_demo.py
 - Play mode.  
   ![play_mode](assets/play_mode.gif)
 
+# Try Hong Kong Sign Language or Japanese Sign Language
+
+1. Download [hksl_jsl_samples.zip](https://storage.googleapis.com/bit-studio-static/jobs/shuwa/hksl_jsl_samples.zip) 
+2. Extract to root directory
+3. run 
+    ```
+    python3 webcam_demo.py
+    ```
 
 
 # Train classifier
